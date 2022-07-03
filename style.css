@@ -1,0 +1,105 @@
+body {
+    margin: 0
+}
+
+#wrapper {
+    display: flex;
+
+}
+
+#navBar {
+    margin: 0px;
+    padding: 10px;
+    flex-basis: 100%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#mainClickerContainer { 
+    flex-basis: 80%;
+    background-color: blueviolet;    
+    height: 50em;
+}
+
+#upgrades {
+    flex-basis: 20%;
+    background-color: aquamarine;
+}
+
+#footer{
+    height: 3.1em;
+    margin: 0px;
+    padding: 10px;
+    flex-basis: 100%;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upgrade {
+    display: block;
+    height: 10%;
+    width: 100%;
+}
+
+#mainClicker {
+    
+    width: 517px;
+    border-radius: 50%;
+}
+
+#mainClick {
+    display: block;
+    width: 300px;
+    
+}
+
+h3{
+    margin: 0;
+}
+
+.upgrade {
+    height: 78px;
+    margin-top: 0px;
+    align-content: space-between;
+    background-size: contain;
+    justify-content: left;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    width: 99.6%;
+}
+
+.upgrade:hover {
+    background-color: brown;
+
+}
+
+.upgrade:active {
+    
+        background-color: #3e8e41;
+       
+        transform: translateY(4px);
+      
+}
+
+.worker{
+    background-image: url("./images/worker.png");
+    background-position: right;
+}
+
+.shop{
+    background-image: url("./images/shop.png");
+    background-position: right;
+}
+.factory{
+    background-image: url("./images/factory.png");
+    background-position: right;
+}
+.expand{
+    background-image: url("./images/expand.png");
+    background-position: right;
+}
