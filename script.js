@@ -1,6 +1,6 @@
 let clickpower = 1;
-let score = 199;
-let money = 500000000;
+let score = 0;
+let money = 0;
 let worker = [0, 1, 50, 1]; //[counter, clickpower, cost, moneyPerSec]
 let factory = [0, 10, 1000, 30];
 let shop = [0, 3, 300, 5];
