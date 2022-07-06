@@ -14,12 +14,7 @@
     <div id="wrapper">
       <div id="mainClickerContainer">
         <div id="mainClicker">
-          <img
-            id="mainImg"
-            class="bronze"
-            src="./images/bronze-coin.png"
-            alt=":("
-          />
+          <img id="mainImg" src="./images/bronze-coin.png" alt=":(" />
         </div>
         <div id="clickCounter">
           <h3>SCORE:</h3>
@@ -29,6 +24,7 @@
           <h3>Money:</h3>
           <h2 id="moneyAmount">0</h2>
         </div>
+        <div id="upgradeButton"></div>
       </div>
 
       <div id="upgrades">
@@ -36,19 +32,19 @@
           <h3>Workers count:<span id="workerAmount">0</span></h3>
           Worker cost: <span id="workerCost">50</span> <br />
           Desc: Worker gives you 1 score per sec <br />
-          and 1 gold per click
+          and 1 per click
         </div>
         <div class="upgrade shop">
           <h3>Shops count: <span id="shopAmount">0</span></h3>
           Shop cost: <span id="shopCost">300</span> <br />
-          Desc: Shop gives you 5 money per <br />
-          sec and 3 gold per click
+          Desc: Shop gives you 5 money <br />
+          per sec and 3 per click
         </div>
         <div class="upgrade factory">
           <h3>Factorys count: <span id="factoryAmount">0</span></h3>
           Factory cost: <span id="factoryCost">1000</span> <br />
-          Desc: Factory gives you 30 money <br />
-          per sec and 10 gold per click
+          Desc: Factory gives you 30 <br />
+          money per sec and 10 per click
         </div>
         <div class="upgrade expand">
           <h3>Expands count: <span id="expandAmount">0</span></h3>
@@ -56,16 +52,43 @@
           Desc: Multiplies your income <br />
           by 10%
         </div>
-        <div class="upgrade"></div>
-        <div class="upgrade"></div>
-        <div class="upgrade"></div>
-        <div class="upgrade"></div>
-        <div class="upgrade"></div>
-        <div class="upgrade"></div>
+        <div class="upgrade estate">
+          <h3>Estates count: <span id="estateAmount">0</span></h3>
+          Estate cost: <span id="estateCost"> 10000</span> <br />
+          Desc: Estates gives you 50 money <br />
+          per sec and 100 per click
+        </div>
+        <div class="upgrade company">
+          <h3>Companies count: <span id="companyAmount">0</span></h3>
+          Company cost: <span id="companyCost">20000</span> <br />
+          Desc: Company gives you 150 <br />
+          money per sec and 250 per click
+        </div>
+        <div class="upgrade politician">
+          <h3>Politicians count: <span id="politicianAmount">0</span></h3>
+          Politician cost: <span id="politicianCost">30000</span> <br />
+          Desc: Politician gives you 300 <br />
+          money per sec and 400 per click
+        </div>
+        <div class="upgrade state">
+          <h3>States count: <span id="stateAmount">0</span></h3>
+          State cost: <span id="stateCost">50000</span> <br />
+          Desc: State gives you 1000 <br />
+          money per sec and 1500 per click
+        </div>
+        <div class="upgrade communism">
+          <h3>Communism count: <span id="communismAmount">0</span></h3>
+          Communism cost: <span id="communismCost">100000</span><br />
+          Desc: Communism gives you <br />
+          all the money you need
+        </div>
+        <div class="upgrade win">
+          <h2 class="won">WIN A GAME</h2>
+          cost: 1000000
+        </div>
       </div>
     </div>
     <div id="footer"></div>
-
     <script src="./script.js"></script>
   </body>
 </html>
