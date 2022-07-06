@@ -1,14 +1,14 @@
 let clickpower = 1;
 let score = 199;
-let money = 50000;
+let money = 500000000;
 let worker = [0, 1, 50, 1]; //[counter, clickpower, cost, moneyPerSec]
 let factory = [0, 10, 1000, 30];
 let shop = [0, 3, 300, 5];
-let estate = [0, 50, 10000, 100]
-let company = [0, 150, 20000, 250 ]
-let politician = [0, 300, 30000, 400]
-let state = [0, 1000, 50000, 1500]
-let communism = [0, 10000000, 100000, 10000000 ]
+let estate = [0, 50, 10000, 100];
+let company = [0, 150, 20000, 250];
+let politician = [0, 300, 30000, 400];
+let state = [0, 1000, 50000, 1500];
+let communism = [0, 10000000, 100000, 10000000];
 let expand = 1.1;
 let expandCost = 5000;
 let expandCounter = 0;
@@ -56,6 +56,8 @@ const stateAmount = document.querySelector("#stateAmount");
 const buyCommunism = document.querySelector(".communism");
 const communismsCost = document.querySelector("#communismCost");
 const communismAmount = document.querySelector("#communismAmount");
+
+const winGame = document.querySelector(".win");
 
 const addToScoreAndMoney = function () {
   money = money + clickpower;
@@ -129,14 +131,37 @@ buyExpand.addEventListener("click", expandBuy);
 
 buyEstate.addEventListener("click", buy(estate, estatesCost, estateAmount));
 
-buyCompany.addEventListener("click", buy(company, companiesCost, companyAmount));
+buyCompany.addEventListener(
+  "click",
+  buy(company, companiesCost, companyAmount)
+);
 
-buyPolitician.addEventListener("click", buy(politician, politiciansCost, politicianAmount));
+buyPolitician.addEventListener(
+  "click",
+  buy(politician, politiciansCost, politicianAmount)
+);
 
 buyState.addEventListener("click", buy(state, statesCost, stateAmount));
 
-buyCommunism.addEventListener("click", buy(communism, communismsCost, communismAmount));
+buyCommunism.addEventListener(
+  "click",
+  buy(communism, communismsCost, communismAmount)
+);
 
+winGame.addEventListener("click", function () {
+  document.body.innerHTML = "";
+  document.body.style.backgroundImage = "url('./images/won.jpg')";
+  document.body.style.backgroundRepeat = "no-repeat";
+
+  document.body.style.backgroundSize = "cover";
+  const h1 = document.createElement("span");
+  h1.innerText = "COMMUNISM DOESNT WORK";
+  h1.style.textAlign = "center";
+  h1.style.fontSize = "200px";
+  document.body.appendChild(h1);
+  const audio = new Audio("./images/win_sound.mp3");
+  audio.play();
+});
 
 coin.addEventListener("click", addToScoreAndMoney);
 
