@@ -127,15 +127,15 @@ buyfactory.addEventListener("click", buy(factory, factorysCost, factoryAmount));
 
 buyExpand.addEventListener("click", expandBuy);
 
-buyEstate.addEventListener("click", buy(factory, factorysCost, factoryAmount));
+buyEstate.addEventListener("click", buy(estate, estatesCost, estateAmount));
 
-buyfactory.addEventListener("click", buy(factory, factorysCost, factoryAmount));
+buyCompany.addEventListener("click", buy(company, companiesCost, companyAmount));
 
-buyfactory.addEventListener("click", buy(factory, factorysCost, factoryAmount));
+buyPolitician.addEventListener("click", buy(politician, politiciansCost, politicianAmount));
 
-buyfactory.addEventListener("click", buy(factory, factorysCost, factoryAmount));
+buyState.addEventListener("click", buy(state, statesCost, stateAmount));
 
-buyfactory.addEventListener("click", buy(factory, factorysCost, factoryAmount));
+buyCommunism.addEventListener("click", buy(communism, communismsCost, communismAmount));
 
 
 coin.addEventListener("click", addToScoreAndMoney);
