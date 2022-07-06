@@ -1,36 +1,34 @@
 let clickpower = 1;
 let score = 50000;
 let money = 50000;
-let worker = 0;
+let worker = [0, 1, 50, 1]; //[counter, clickpower, cost, moneyPerSec]
 let expand = 1.1;
 let expandCounter = 0;
-let factory = 0;
-let shop = 0;
+let factory = [0, 10, 1000, 30];
+let shop = [0, 3, 300, 5];
 const multiplier = 1.1;
-let workerCost = 50;
 let shopCost = 300;
 let factoryCost = 1000;
 let expandCost = 5000;
 
 let moneyPerSec = 0;
 
-//main block
 const coin = document.body.querySelector("#mainClicker");
 const scoreAmount = document.querySelector("#clicksPerSecond");
 const moneyScore = document.querySelector("#moneyAmount");
-//worker functionality
+
 const workersAmount = document.querySelector("#workerAmount");
 const workersCost = document.querySelector("#workerCost");
 const buyWorker = document.querySelector(".worker");
-//shop functionality
+
 const buyShop = document.querySelector(".shop");
 const shopsCost = document.querySelector("#shopCost");
 const shopAmount = document.querySelector("#shopAmount");
-//factory functionality
+
 const buyfactory = document.querySelector(".factory");
 const factorysCost = document.querySelector("#factoryCost");
 const factoryAmount = document.querySelector("#factoryAmount");
-//Expand functionality
+
 const buyExpand = document.querySelector(".expand");
 const expandsCost = document.querySelector("#expandCost");
 const expandAmount = document.querySelector("#expandAmount");
@@ -42,69 +40,60 @@ const addToScoreAndMoney = function () {
   moneyScore.innerHTML = money;
 };
 
-const buy = function (type, cost, queryCost, queryCounter, typeClickpower) {
+const buy = function (type, queryCost, queryCounter) {
   return function () {
-    if (money > cost - 1) {
-      type++;
-      const y = cost;
-      money = money - cost;
-      cost = Math.round(y * multiplier);
-      queryCost.innerHTML = cost;
-      queryCounter.innerHTML = type;
+    if (money > type[2] - 1) {
+      type[0]++;
+      money = money - type[2];
+      type[2] = Math.round(type[2] * multiplier);
+      queryCost.innerHTML = type[2];
+      queryCounter.innerHTML = type[0];
       scoreAmount.innerHTML = score;
       moneyScore.innerHTML = money;
-      clickpower = clickpower + typeClickpower;
+      clickpower = clickpower + type[3];
+      moneyPerSec = moneyPerSec + type[1];
     }
   };
 };
+
+const updateExpand = () => (moneyPerSec = Math.round(moneyPerSec * expand));
 
 const expandBuy = function () {
   if (money > expandCost - 1) {
     money = money - expandCost;
     expandCounter++;
     console.log(moneyPerSec);
-    moneyPerSec = moneyPerSec * expand;
-    expandCost = expandCost * 1.1;
+    moneyPerSec = Math.round(moneyPerSec * expand);
+    expandCost = Math.round(expandCost * 1.1);
     expandsCost.innerHTML = expandCost;
     expandAmount.innerHTML = expandCounter;
-    console.log("chuj");
+    moneyPerSec = Math.round((worker * 1 + shop * 5 + factory * 30) * expand);
   }
 };
 
-//worker
-
-buyWorker.addEventListener(
-  "click",
-  buy(worker, workerCost, workersCost, workersAmount, 1)
-);
+buyWorker.addEventListener("click", buy(worker, workersCost, workersAmount));
 buyWorker.addEventListener("click", () => {
   worker += 1;
   workerCost = Math.round(workerCost * multiplier);
 });
 
-//shop
-
 buyShop.addEventListener(
   "click",
-  buy(shop, shopCost, shopsCost, shopAmount, 3)
+  buy(shop, shopCost, shopsCost, shopAmount, 5)
 );
 buyShop.addEventListener("click", () => {
   shop += 1;
   shopCost = Math.round(shopCost * multiplier);
 });
 
-//factory
-
 buyfactory.addEventListener(
   "click",
-  buy(factory, factoryCost, factorysCost, factoryAmount, 10)
+  buy(factory, factoryCost, factorysCost, factoryAmount, 30)
 );
 buyfactory.addEventListener("click", () => {
   factory += 1;
   factoryCost = Math.round(factoryCost * multiplier);
 });
-
-//expand
 
 buyExpand.addEventListener("click", expandBuy);
 
@@ -114,8 +103,7 @@ scoreAmount.innerHTML = score;
 moneyScore.innerHTML = money;
 
 setInterval(() => {
-  score = score + worker * 1 + shop * 5 + factory * 30;
-  moneyPerSec = worker * 1 + shop * 5 + factory * 30;
+  score = score + moneyPerSec;
   money = money + moneyPerSec;
   scoreAmount.innerHTML = score;
   moneyScore.innerHTML = money;
