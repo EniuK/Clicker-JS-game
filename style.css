@@ -18,7 +18,8 @@ body {
 
 #mainClickerContainer {
   flex-basis: 80%;
-  background-color: blueviolet;
+  background-image: url("./images/wrap.jpg");
+  background-size: cover;
   height: 50em;
 }
 
@@ -45,13 +46,13 @@ body {
 }
 
 #mainClicker {
-  width: 517px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
 }
 
-#mainClick {
-  display: block;
-  width: 300px;
+#mainClicker:hover {
+  cursor: pointer;
 }
 
 h3 {
@@ -81,6 +82,7 @@ h3 {
 
 #mainImg {
   width: 300px;
+  border-radius: 50%;
 }
 
 .worker {
