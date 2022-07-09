@@ -8,7 +8,7 @@ let estate = [0, 50, 10000, 100];
 let company = [0, 150, 20000, 250];
 let politician = [0, 300, 30000, 400];
 let state = [0, 1000, 50000, 1500];
-let communism = [0, 10000000, 100000, 10000000];
+let stock = [0, 10000, 100000, 10000];
 let expand = 1.1;
 let expandCost = 5000;
 let expandCounter = 0;
@@ -53,9 +53,9 @@ const buyState = document.querySelector(".state");
 const statesCost = document.querySelector("#stateCost");
 const stateAmount = document.querySelector("#stateAmount");
 
-const buyCommunism = document.querySelector(".communism");
-const communismsCost = document.querySelector("#communismCost");
-const communismAmount = document.querySelector("#communismAmount");
+const buystock = document.querySelector(".stock");
+const stocksCost = document.querySelector("#stockCost");
+const stockAmount = document.querySelector("#stockAmount");
 
 const winGame = document.querySelector(".win");
 
@@ -68,7 +68,7 @@ const addToScoreAndMoney = function () {
 };
 
 const betterCoin = function () {
-  if (score == 200) {
+  if (score == 500) {
     const container = document.querySelector("#upgradeButton");
     const buttonUpgrade = document.createElement("button");
     buttonUpgrade.innerText = "BETTER COIN";
@@ -79,7 +79,7 @@ const betterCoin = function () {
       coinImg.src = "./images/silver-coin.png";
       container.innerHTML = "";
     });
-  } else if (score == 400) {
+  } else if (score == 700) {
     const container = document.querySelector("#upgradeButton");
     const buttonUpgrade = document.createElement("button");
     buttonUpgrade.innerText = "EVEN BETTER COIN";
@@ -143,10 +143,7 @@ buyPolitician.addEventListener(
 
 buyState.addEventListener("click", buy(state, statesCost, stateAmount));
 
-buyCommunism.addEventListener(
-  "click",
-  buy(communism, communismsCost, communismAmount)
-);
+buystock.addEventListener("click", buy(stock, stocksCost, stockAmount));
 
 winGame.addEventListener("click", function () {
   document.body.innerHTML = "";
@@ -155,7 +152,7 @@ winGame.addEventListener("click", function () {
 
   document.body.style.backgroundSize = "cover";
   const h1 = document.createElement("span");
-  h1.innerText = "COMMUNISM DOESNT WORK";
+  h1.innerText = "stock DOESNT WORK";
   h1.style.textAlign = "center";
   h1.style.fontSize = "200px";
   document.body.appendChild(h1);
