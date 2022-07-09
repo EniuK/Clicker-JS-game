@@ -1,6 +1,6 @@
 let clickpower = 1;
 let score = 0;
-let money = 0;
+let money = 1000000000;
 let worker = [0, 1, 50, 1]; //[counter, clickpower, cost, moneyPerSec]
 let factory = [0, 10, 1000, 30];
 let shop = [0, 3, 300, 5];
@@ -147,15 +147,22 @@ buystock.addEventListener("click", buy(stock, stocksCost, stockAmount));
 
 winGame.addEventListener("click", function () {
   document.body.innerHTML = "";
-  document.body.style.backgroundImage = "url('./images/won.jpg')";
+  document.body.style.backgroundImage = "url('./images/won-img.png')";
   document.body.style.backgroundRepeat = "no-repeat";
 
   document.body.style.backgroundSize = "cover";
-  const h1 = document.createElement("span");
-  h1.innerText = "stock DOESNT WORK";
-  h1.style.textAlign = "center";
-  h1.style.fontSize = "200px";
-  document.body.appendChild(h1);
+  const div = document.createElement("div");
+  const img = document.createElement("img");
+  img.src = "./images/won.png";
+  img.style.display = "block";
+  img.style.marginLeft = "auto";
+  img.style.marginRight = "auto";
+  img.style.width = "50%";
+  div.innerText = "CONGRATULATIONS!!!";
+  div.style.textAlign = "center";
+  div.style.fontSize = "100px";
+  document.body.appendChild(div);
+  document.body.appendChild(img);
   const audio = new Audio("./images/win_sound.mp3");
   audio.play();
 });
